@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <style>
+        #checkoutForm{
+            background-color:green;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        width: 500px;
+        margin-left: 200px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="checkout-container">
+        <h2 style="margin-left: 200px;">Checkout</h2>
+  
+        <!-- Form to capture delivery address and customer details -->
+        <form id="checkoutForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+  
+            <label for="address">Delivery Address:</label>
+            <textarea id="address" name="address" rows="4" cols="50" required></textarea><br>
+  
+            <label for="paymentMethod">Payment Method:</label><br>
+            <input type="radio" id="cashOnDelivery" name="paymentMethod" value="cashOnDelivery" checked>
+            <label for="cashOnDelivery">Cash on Delivery</label><br>
+            
+            <input type="radio" id="onlinePayment" name="paymentMethod" value="onlinePayment">
+            <label for="onlinePayment">Online Payment</label><br><br>
+  
+            <!-- Hidden input to store selected items from the cart -->
+            <input type="hidden" id="selectedItems" name="selectedItems">
+  
+            <button type="submit">Submit</button>
+        </form>
+  
+        <div style="margin-left: 200px;" id="paymentResult" style="display: none;"></div>
+    </div>
+  
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get selected items from the previous page or wherever they are stored
+            const selectedItems = [0,1,2,3,4,5,6,7,8,9]; // Example item indices, replace with actual item data
+            document.getElementById("selectedItems").value = JSON.stringify(selectedItems);
+        });
+
+        document.getElementById("checkoutForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const name = formData.get("name");
+            const address = formData.get("address");
+            const paymentMethod = formData.get("paymentMethod");
+
+            // Define item prices (adjust these according to your item prices)
+            const itemPrices = [10.99, 1.99, 2.99, 3.99,5.99,7.99,4.99 /* Add more item prices here */];
+
+            // Get selected items
+            const selectedItems = JSON.parse(formData.get("selectedItems"));
+
+            // Calculate the total amount based on selected items
+            // Calculate the total amount based on selected items
+let totalAmount = 0;
+selectedItems.forEach(itemIndex => {
+    const itemPrice = itemPrices[itemIndex];
+    if (!isNaN(itemPrice)) {
+        totalAmount += itemPrice;
+    } else {
+        console.log("Invalid price for item:", itemIndex);
+    }
+});
+
+console.log("Total Amount:", totalAmount);
+
+
+            let paymentMessage = `Total amount you must pay is $${totalAmount.toFixed(2)}`;
+
+            if (paymentMethod === "cashOnDelivery") {
+                paymentMessage += " (Cash on Delivery).";
+            } else if (paymentMethod === "onlinePayment") {
+                paymentMessage += " (Online Payment).";
+            }
+
+            // Display the payment message
+            const paymentResultElement = document.getElementById("paymentResult");
+            paymentResultElement.textContent = paymentMessage;
+            paymentResultElement.style.display = "block";
+        });
+    </script>
+</body>
+</html>
