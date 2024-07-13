@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>e-commerce</title>
+  </head>
+  <body>
+    <h2><center> Happy Shopping!</center></h2>
+    <style>
+      /* ... Your existing CSS styles ... */
+      body {
+        font-family: "Lucida Sans";
+        background-color: #f2f2f2;
+        background-image: url("https://img.freepik.com/premium-photo/abstract-background-green-color_7182-1104.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .logo {
+        font-size: 30px;
+        font-weight: bold;
+        color: #333;
+        margin-left: 420px;
+        justify-content: center;
+        text-align: center;
+      }
+        .search-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 29px;
+        }
+      .search-input {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        margin-right: 20px;
+        width: 500px;
+      }
+      .search-btn {
+        padding: 10px 20px;
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .book-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      .book-card {
+        width: calc(33.33% - 10px);
+        margin-bottom: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        overflow: hidden;
+        float: right;
+      }
+      .book-card img {
+        max-width: 50%;
+        height: auto;
+        border-radius: 10%;
+      }
+      .book-card .details {
+        padding: 10px;
+      }
+      .book-card .title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #333;
+      }
+      .book-card .author {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 5px;
+      }
+      img {
+        width: 150px;
+        height: 100px;
+      }
+      .pagination {
+        display: inline-block;
+        margin-left: 400px;
+      }
+
+      .pagination a {
+        color: black;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+      }
+
+      .pagination a.active {
+        background-color: #4c63af;
+        color: white;
+        border-radius: 5px;
+      }
+
+      .pagination a:hover:not(.active) {
+        background-color: #ddd;
+        border-radius: 5px;
+      }
+      .cart {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+      }
+      .cart-icon {
+        font-size: 24px;
+        cursor: pointer;
+      }
+      .cart-count {
+        margin-left: 5px;
+        font-weight: bold;
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize the shopping cart as an empty array.
+        const shoppingCart = [];
+
+        // Function to update the cart count display.
+        function updateCartCount() {
+          const cartCountElement = document.querySelector(".cart-count");
+          cartCountElement.textContent = shoppingCart.length;
+        }
+
+        // Add a book to the cart.
+        function addToCart(title, author) {
+          shoppingCart.push({ title, author });
+          updateCartCount();
+        }
+
+        // Attach click event listeners to "Add to Cart" buttons.
+        const addToCartButtons = document.querySelectorAll(".add-to-cart");
+        addToCartButtons.forEach((button) => {
+          button.addEventListener("click", (event) => {
+            const bookCard = event.target.closest(".book-card");
+            const title = bookCard.querySelector(".title").textContent;
+            const author = bookCard.querySelector(".author").textContent;
+            addToCart(title, author);
+          });
+        });
+
+        // Handle the cart icon click event to show cart contents.
+        const cartIcon = document.querySelector(".cart-icon");
+        const cartContents = document.querySelector(".cart-contents");
+
+        cartIcon.addEventListener("click", () => {
+          // Create a list of cart items to display.
+          const cartItems = shoppingCart.map(
+            (item) => `${item.title} by ${item.author}`
+          );
+
+          // Create a list element and append cart items.
+          const cartList = document.createElement("ul");
+          cartItems.forEach((itemText) => {
+            const listItem = document.createElement("li");
+            listItem.textContent = itemText;
+            cartList.appendChild(listItem);
+          });
+
+          // Display the cart items in a dialog.
+          if (cartItems.length > 0) {
+            alert("Your Cart:\n" + cartItems.join("\n"));
+          } else {
+            alert("Your cart is empty.");
+          }
+        });
+
+        // Update the cart count on page load.
+        updateCartCount();
+      });
+    </script>
+    <div class="container">
+      <header class="header">
+        <div class="logo">Online Pesticide Shop</div>
+        <div class="cart">
+          <span class="cart-icon">🛒</span>
+          <span class="cart-count">0</span>
+        </div>
+        
+        <!-- ... Your existing search form ... -->
+      </header>
+      <div class="book-list">
+        <div class="container">
+            
+            <form class="search-box">
+            <input type="text" class="search-input" placeholder="Search Pesticides...">
+            <button type="submit" class="search-btn">Search</button>
+            </form>
+            </header>
+            <div class="book-list">
+                <div class="book-card">
+                    <img src="https://2.bp.blogspot.com/-k02EQ1HthXM/V0twSC_BQFI/AAAAAAAAAGQ/i560fOsVmaIDkECsrvMLuUeVOjr-Fx9sACKgB/s1600/insecticide%2Bimage.jpg" alt="Book 1" class="one">
+                    <div class="details">
+                      <div class="title">Glyhunts</div>
+                      <div class="author">Pushkar Pesticides</div>
+                      <div class="price">$10.99</div> <!-- Add price -->
+                      <button class="add-to-cart" onclick="addToCart('Glyhunts', 'Pushkar Pesticides', 10.99)">Add to Cart</button>
+                    </div>
+                  </div>
+            <div class="book-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8yZ2-lOR7TrE04Yndq0dGDvGynf6Ym2-0-A&usqp=CAU" alt="Book 2">
+            <div class="details">
+            <div class="title">Morter WG</div>
+            <div class="author">China Pesticide</div>
+            <div class="price">$10.99</div> <!-- Add price -->
+                      <button class="add-to-cart" onclick="addToCart('Morter ', 'China Pesticides', 10.99)">Add to Cart</button>
+            </div>
+            </div>
+            <div class="book-card">
+            <img src="https://badikheti-production.s3.ap-south-1.amazonaws.com/products/202208051450101917258489.jpg" alt="Book 3">
+            <div class="details">
+            <div class="title">Garden Pesticide</div>
+            <div class="author">Katyayaini Pesticides</div>
+            <div class="price">$10.99</div> <!-- Add price -->
+            <button class="add-to-cart" onclick="addToCart('Garden Pesticide', 'Katyayaini Pesticides', 10.99)">Add to Cart</button>
+            </div>
+            </div>
+            <div class="book-card">
+            <img src="https://5.imimg.com/data5/SELLER/Default/2021/7/WO/ML/LK/43259546/bio-potash-organic-potassium-k15--500x500.png" alt="Book 4">
+            <div class="details">
+            <div class="title">Super Pest Guard </div>
+            <div class="author">Xfert Pesticides</div>
+            <div class="price">$10.99</div>
+            <button class="add-to-cart" onclick="addToCart('Super Pest Guard', 'Xfert Pesticides', 10.99)">Add to Cart</button>
+            </div>
+            </div>
+            <div class="book-card">
+            <img src="https://5.imimg.com/data5/SELLER/Default/2021/7/QR/YK/FT/43259546/ferrous-sulphate-500x500.png" alt="Book 5">
+            <div class="details">
+            <div class="title">For sucking Pests</div>
+            <div class="author">Xfert pesticides</div>
+            <div class="price">$2.99</div>
+            <button class="add-to-cart"onclick="addToCart('For Sucking Pests', 'Xfert Pesticides', 2.99)">Add to Cart</button>
+            </div>
+            </div>
+            <div class="book-card">
+            <img src="https://seller.agrim.app/images/detailed/28/SAHIB-PESTICIDE-RICE-GOLD.jpg" alt="Book 6">
+            <div class="details">
+            <div class="title">Bispyribac Sodium</div>
+            <div class="author">Sahib Pesticides</div>
+            <div class="price">$1.99</div>
+            <button class="add-to-cart" onclick="addToCart('Bispyribac Sodium', 'Sahib Pesticides', 1.99)">Add to Cart</button>
+            </div>
+            </div>
+            <div class="book-card">
+            <img src="https://cdn-prodapi.iffcobazar.in/pub/media/catalog/product/y/u/yuri_2_1-min.png" alt="Book 7">
+            <div class="details">
+            <div class="title">Yuri</div>
+            <div class="author">Morgan Rice</div>
+            <div class="price">$3.99</div>
+            <button class="add-to-cart" onclick="addToCart('Yuri', 'Morgan Rice', 3.99)">Add to Cart</button>
+            </div>
+            </div>
+            <div class="book-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9_2J9wkjLEEhFle_3HeSQV1nV3dDedEp20g&usqp=CAU" alt="Book 8">
+            <div class="details">
+            <div class="title">Mycorrhiza</div>
+            <div class="author">Gujarat Pesticides</div>
+            <div class="price">$4.99</div>
+            <button class="add-to-cart" onclick="addToCart('Mycorrhiza', 'Gujarat Pesticides', 4.99)">Add to Cart</button>
+            </div>
+            </div>
+            <div class="book-card">
+            <img src="https://5.imimg.com/data5/ANDROID/Default/2023/2/JJ/TY/WY/156437264/product-jpeg-500x500.jpg" alt="Book 9">
+            <div class="details">
+            <div class="title">CyperMethrin</div>
+            <div class="author">Cyper-25</div>
+            <div class="price">$5.99</div>
+            <button class="add-to-cart" onclick="addToCart('Cyper Methrin', 'Cyper-25', 5.99)">Add to Cart</button>
+            </div>
+            </div>
+            <div class="book-card">
+            <img src="https://gujratpesticides.com/wp-content/uploads/2021/02/Inquairy.png" alt="Book 9">
+            <div class="details">
+            <div class="title">CyperMethrin 25% E.C</div>
+            <div class="author">Inquiry</div>
+            <div class="price">$7.99</div>
+            <button class="add-to-cart" onclick="addToCart('CyperMethrin 25% E.C', 'Inquiry', 7.99)">Add to Cart</button>
+            </div>
+            </div>
+            <div class="book-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJSZUllxBQ3ZbCIQxcbZ2ST__mgodMfCpU1Q&usqp=CAU" alt="Book 10">
+            <div class="details">
+            <div class="title">Diafenthuiron</div>
+            <div class="author">SHO Insectiside</div>
+            <div class="price">$1.99</div>
+            <button class="add-to-cart" onclick="addToCart('Diafenthuiron', 'SHO Insectiside', 1.99)">Add to Cart</button>
+            </div>
+            </div>
+            <div class="book-card">
+            <img src="https://www.volkschem.com/images/products/img-pesticides.jpg" alt="Book 10">
+            <div class="details">
+            <div class="title">Bifenthrin</div>
+            <div class="author">Volstar</div>
+            <div class="price">$2.99</div>
+            <button class="add-to-cart" onclick="addToCart('Bifenthrin', 'Volstar', 2.99)">Add to Cart</button>
+            </div>
+
+        <!-- ... Your existing book cards ... -->
+        
+    </div>
+    <script>
+      // ... Your existing code ...
+  
+      // Function to filter book cards based on the search term.
+      function filterPesticides(searchTerm) {
+          const bookCards = document.querySelectorAll(".book-card");
+  
+          bookCards.forEach((bookCard) => {
+              const title = bookCard.querySelector(".title").textContent.toLowerCase();
+              const author = bookCard.querySelector(".author").textContent.toLowerCase();
+  
+              if (title.includes(searchTerm) || author.includes(searchTerm)) {
+                  bookCard.style.display = "block";
+              } else {
+                  bookCard.style.display = "none";
+              }
+          });
+      }
+  
+      // Search functionality
+      function searchPesticides() {
+          const searchInput = document.getElementById("search-input");
+          const searchTerm = searchInput.value.trim().toLowerCase();
+          const searchResults = document.getElementById("search-results");
+          const bookList = document.querySelector(".book-list");
+  
+          // Clear previous search results and show book list.
+          searchResults.innerHTML = "";
+          searchResults.style.display = "none";
+          bookList.style.display = "block";
+  
+          if (searchTerm !== "") {
+              // Filter book cards based on the search term.
+              filterPesticides(searchTerm);
+  
+              // Check if any results were found.
+              const visibleBookCards = document.querySelectorAll(".book-card[style='display: block;']");
+              if (visibleBookCards.length === 0) {
+                  searchResults.innerHTML = "<p>No results found.</p>";
+                  searchResults.style.display = "block";
+                  bookList.style.display = "none";
+              }
+          }
+      }
+  
+      // ... The rest of your code ...
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize the shopping cart as an empty array.
+        const shoppingCart = [];
+  
+        // Function to update the cart count display.
+        function updateCartCount() {
+          const cartCountElement = document.querySelector(".cart-count");
+          cartCountElement.textContent = shoppingCart.length;
+        }
+  
+        // Add a book to the cart.
+        function addToCart(title, author) {
+          shoppingCart.push({ title, author });
+          updateCartCount();
+        }
+  
+        // Attach click event listeners to "Add to Cart" buttons.
+        const addToCartButtons = document.querySelectorAll(".add-to-cart");
+        addToCartButtons.forEach((button) => {
+          button.addEventListener("click", (event) => {
+            const bookCard = event.target.closest(".book-card");
+            const title = bookCard.querySelector(".title").textContent;
+            const author = bookCard.querySelector(".author").textContent;
+            addToCart(title, author);
+          });
+        });
+  
+        // Handle the cart icon click event to show cart contents.
+        const cartIcon = document.querySelector(".cart-icon");
+        const cartContents = document.querySelector(".cart-contents");
+  
+        cartIcon.addEventListener("click", () => {
+          // Create a list of cart items to display.
+          const cartItems = shoppingCart.map(
+            (item) => `${item.title} by ${item.author}`
+          );
+  
+          // Create a list element and append cart items.
+          const cartList = document.createElement("ul");
+          cartItems.forEach((itemText) => {
+            const listItem = document.createElement("li");
+            listItem.textContent = itemText;
+            cartList.appendChild(listItem);
+          });
+  
+          // Display the cart items in a dialog.
+          if (cartItems.length > 0) {
+            alert("Your Cart:\n" + cartItems.join("\n"));
+          } else {
+            alert("Your cart is empty.");
+          }
+        });
+  
+        // Update the cart count on page load.
+        updateCartCount();
+      });
+    </script>
+  <center><div class="payment-section">
+      <h2>Payment Options</h2>
+      <a href="checkout.html"><button id="payButton">Pay Now</button></a>
+    </div></center>
+  </body>
+</html>
