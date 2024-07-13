@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>e-commerce</title>
+  </head>
+  <body>
+    <h2><center> Happy Shopping!</center></h2>
+    <style>
+      /* ... Your existing CSS styles ... */
+      body {
+        font-family: "Lucida Sans";
+        background-color: #f2f2f2;
+        background-image: url("https://img.freepik.com/premium-photo/abstract-background-green-color_7182-1104.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .logo {
+        font-size: 30px;
+        font-weight: bold;
+        color: #333;
+        margin-left: 420px;
+        justify-content: center;
+        text-align: center;
+      }
+        .search-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 29px;
+        }
+      .search-input {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        margin-right: 20px;
+        width: 500px;
+      }
+      .search-btn {
+        padding: 10px 20px;
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .book-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      .book-card {
+        width: calc(33.33% - 10px);
+        margin-bottom: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        overflow: hidden;
+        float: right;
+      }
+      .book-card img {
+        max-width: 50%;
+        height: auto;
+        border-radius: 10%;
+      }
+      .book-card .details {
+        padding: 10px;
+      }
+      .book-card .title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #333;
+      }
+      .book-card .author {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 5px;
+      }
+      img {
+        width: 150px;
+        height: 100px;
+      }
+      .pagination {
+        display: inline-block;
+        margin-left: 400px;
+      }
+
+      .pagination a {
+        color: black;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+      }
+
+      .pagination a.active {
+        background-color: #4c63af;
+        color: white;
+        border-radius: 5px;
+      }
+
+      .pagination a:hover:not(.active) {
+        background-color: #ddd;
+        border-radius: 5px;
+      }
+      .cart {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+      }
+      .cart-icon {
+        font-size: 24px;
+        cursor: pointer;
+      }
+      .cart-count {
+        margin-left: 5px;
+        font-weight: bold;
+      }
+    </style>
+    
+    <div class="container">
+      <header class="header">
+        <div class="logo">Online Fertilizers Shop</div>
+        <div class="cart">
+          <span class="cart-icon">🛒</span>
+          <span class="cart-count">0</span>
+        </div>
+        
+        <!-- ... Your existing search form ... -->
+      </header>
+      <div class="book-list">
+        <div class="container">
+            
+            <form class="search-box">
+            <input type="text" class="search-input" placeholder="Search Fertilizers...">
+            <button type="submit" class="search-btn">Search</button>
+            </form>
+            </header>
+            <div class="book-list">
+                <div class="book-card">
+                    <img src="https://agrinex.in/wp-content/uploads/2015/02/paddy-mulltif.jpg" alt="Book 1" class="one">
+                    <div class="details">
+                      <div class="title">Paddy Fertilizer</div>
+                      <div class="author">agrinex</div>
+                      <div class="price">$10.99</div> <!-- Add price -->
+                      <button class="add-to-cart" onclick="addToCart('Paddy Fertilizer', 'agrinex', 10.99)">Add to Cart</button>
+                    </div>
+                  </div>
+            <div class="book-card">
+            <img src="https://5.imimg.com/data5/ANDROID/Default/2022/4/TB/WU/MV/4292295/img-20220217-wa0028-jpg-500x500.jpg" alt="Book 2">
+            <div class="details">
+            <div class="title">Super Bonmil</div>
+            <div class="author">Khushi Fertilizers</div>
+            <div class="price">$10.99</div> <!-- Add price -->
+                      <button class="add-to-cart" onclick="addToCart('Super Bonmil', 'Khushi Fertilizers', 10.99)">Add to Cart</button>
+            </div>
+            </div>
+            <div class="book-card">
+            <img src="https://5.imimg.com/data5/ANDROID/Default/2022/10/OE/HV/FT/54333176/product-jpeg-500x500.jpg" alt="Book 3">
+            <div class="details">
+            <div class="title">Organic Manure</div>
+            <div class="author">Jagruti Vermi Compost</div>
+            <div class="price">$10.99</div> <!-- Add price -->
+            <button class="add-to-cart" onclick="addToCart('Organic Manure', 'Jagruti Vermi Compost', 10.99)">Add to Cart</button>
+            </div>
+            </div>
+            <div class="book-card">
+            <img src="https://5.imimg.com/data5/ANDROID/Default/2022/6/DR/DI/IQ/154061515/product-jpeg-500x500.jpg" alt="Book 4">
+            <div class="details">
+            <div class="title">Go-Sanvardhan </div>
+            <div class="author">A.A.I</div>
+            <div class="price">$10.99</div>
+            <button class="add-to-cart" onclick="addToCart('Go-Sanvardhan', 'A.A.I', 10.99)">Add to Cart</button>
+            </div>
+            </div>
+            <div class="book-card">
+            <img src="https://www.vietgro.com/wp-content/uploads/2017/09/NPK-20-5-5-10STE-For-Rice.jpg" alt="Book 5">
+            <div class="details">
+            <div class="title">NPK Fertilizer</div>
+            <div class="author">Vietgro</div>
+            <div class="price">$2.99</div>
+            <button class="add-to-cart"onclick="addToCart('NPK Fertilizer', 'Vietgro', 2.99)">Add to Cart</button>
+            </div>
+            </div>
+            <div class="book-card">
+            <img src="https://image.made-in-china.com/2f0j00dSMtknpaZoqQ/Humic-Acid-NPK-Liquid-Fertilizer-for-Rice-Wheat-Paddy-Soil.webp" alt="Book 6">
+            <div class="details">
+            <div class="title">Paddy Liquid Fertilizer</div>
+            <div class="author">China Fertilizer</div>
+            <div class="price">$1.99</div>
+            <button class="add-to-cart" onclick="addToCart('Paddy Liquid Fertilizer', 'China Fertilizer', 1.99)">Add to Cart</button>
+            </div>
+            </div>
+            <div class="book-card">
+            <img src="https://m.media-amazon.com/images/I/41yRN-XXr+L._SY300_SX300_.jpg" alt="Book 7">
+            <div class="details">
+            <div class="title">virtako</div>
+            <div class="author">syngenta</div>
+            <div class="price">$3.99</div>
+            <button class="add-to-cart" onclick="addToCart('virtako', 'syngenta', 3.99)">Add to Cart</button>
+            </div>
+            </div>
+            <div class="book-card">
+            <img src="https://5.imimg.com/data5/SELLER/Default/2022/6/BS/SM/VL/63844686/mahadhan-croptek-npk-fertlizer-500x500.jpg" alt="Book 8">
+            <div class="details">
+            <div class="title">Croptek</div>
+            <div class="author">Mahadan</div>
+            <div class="price">$4.99</div>
+            <button class="add-to-cart" onclick="addToCart('Croptek', 'Mahadan', 4.99)">Add to Cart</button>
+            </div>
+            </div>
+            <div class="book-card">
+            <img src="https://www.artal.net/wp-content/uploads/2020/01/fertilizante-arroz-rice-fertilizer-artal-arroz.jpg" alt="Book 9">
+            <div class="details">
+            <div class="title">Artal</div>
+            <div class="author">Artal-aroz</div>
+            <div class="price">$5.99</div>
+            <button class="add-to-cart" onclick="addToCart('Artal', 'Artal-aroz', 5.99)">Add to Cart</button>
+            </div>
+            </div>
+            <div class="book-card">
+            <img src="https://5.imimg.com/data5/SELLER/Default/2022/5/GG/WE/PI/93379765/img-20220513-wa0103-500x500.jpg" alt="Book 9">
+            <div class="details">
+            <div class="title">Water Soluble Fertilizer</div>
+            <div class="author">Dhanu</div>
+            <div class="price">$7.99</div>
+            <button class="add-to-cart" onclick="addToCart('Water Soluble Fertilizer', 'Dhanu', 7.99)">Add to Cart</button>
+            </div>
+            </div>
+            <div class="book-card">
+            <img src="https://5.imimg.com/data5/SELLER/Default/2021/12/ZR/FD/KO/142543981/new-product-500x500.jpeg" alt="Book 10">
+            <div class="details">
+            <div class="title">Water Soluble Fertilizer</div>
+            <div class="author">Jai Hind</div>
+            <div class="price">$1.99</div>
+            <button class="add-to-cart" onclick="addToCart('Water Soluble Fertilizer', 'Jai Hind', 1.99)">Add to Cart</button>
+            </div>
+            </div>
+            <div class="book-card">
+            <img src="https://5.imimg.com/data5/OT/CF/KO/SELLER-74079375/npk-fertilizer-20-3a20-3a20-500x500.jpg" alt="Book 10">
+            <div class="details">
+            <div class="title">NPK</div>
+            <div class="author">Sarkar</div>
+            <div class="price">$2.99</div>
+            <button class="add-to-cart" onclick="addToCart('NPK', 'Sarkar', 2.99)">Add to Cart</button>
+            </div>
+
+        <!-- ... Your existing book cards ... -->
+        
+    </div>
+    <script>
+      // ... Your existing code ...
+  
+      // Function to filter book cards based on the search term.
+      function filterPesticides(searchTerm) {
+          const bookCards = document.querySelectorAll(".book-card");
+  
+          bookCards.forEach((bookCard) => {
+              const title = bookCard.querySelector(".title").textContent.toLowerCase();
+              const author = bookCard.querySelector(".author").textContent.toLowerCase();
+  
+              if (title.includes(searchTerm) || author.includes(searchTerm)) {
+                  bookCard.style.display = "block";
+              } else {
+                  bookCard.style.display = "none";
+              }
+          });
+      }
+  
+      // Search functionality
+      function searchPesticides() {
+          const searchInput = document.getElementById("search-input");
+          const searchTerm = searchInput.value.trim().toLowerCase();
+          const searchResults = document.getElementById("search-results");
+          const bookList = document.querySelector(".book-list");
+  
+          // Clear previous search results and show book list.
+          searchResults.innerHTML = "";
+          searchResults.style.display = "none";
+          bookList.style.display = "block";
+  
+          if (searchTerm !== "") {
+              // Filter book cards based on the search term.
+              filterPesticides(searchTerm);
+  
+              // Check if any results were found.
+              const visibleBookCards = document.querySelectorAll(".book-card[style='display: block;']");
+              if (visibleBookCards.length === 0) {
+                  searchResults.innerHTML = "<p>No results found.</p>";
+                  searchResults.style.display = "block";
+                  bookList.style.display = "none";
+              }
+          }
+      }
+  
+      // ... The rest of your code ...
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize the shopping cart as an empty array.
+        const shoppingCart = [];
+  
+        // Function to update the cart count display.
+        function updateCartCount() {
+          const cartCountElement = document.querySelector(".cart-count");
+          cartCountElement.textContent = shoppingCart.length;
+        }
+  
+        // Add a book to the cart.
+        function addToCart(title, author) {
+          shoppingCart.push({ title, author });
+          updateCartCount();
+        }
+  
+        // Attach click event listeners to "Add to Cart" buttons.
+        const addToCartButtons = document.querySelectorAll(".add-to-cart");
+        addToCartButtons.forEach((button) => {
+          button.addEventListener("click", (event) => {
+            const bookCard = event.target.closest(".book-card");
+            const title = bookCard.querySelector(".title").textContent;
+            const author = bookCard.querySelector(".author").textContent;
+            addToCart(title, author);
+          });
+        });
+  
+        // Handle the cart icon click event to show cart contents.
+        const cartIcon = document.querySelector(".cart-icon");
+        const cartContents = document.querySelector(".cart-contents");
+  
+        cartIcon.addEventListener("click", () => {
+          // Create a list of cart items to display.
+          const cartItems = shoppingCart.map(
+            (item) => `${item.title} by ${item.author}`
+          );
+  
+          // Create a list element and append cart items.
+          const cartList = document.createElement("ul");
+          cartItems.forEach((itemText) => {
+            const listItem = document.createElement("li");
+            listItem.textContent = itemText;
+            cartList.appendChild(listItem);
+          });
+  
+          // Display the cart items in a dialog.
+          if (cartItems.length > 0) {
+            alert("Your Cart:\n" + cartItems.join("\n"));
+          } else {
+            alert("Your cart is empty.");
+          }
+        });
+  
+        // Update the cart count on page load.
+        updateCartCount();
+      });
+    </script>
+  <center><div class="payment-section">
+      <h2>Payment Options</h2>
+      <a href="checkout.html"><button id="payButton">Pay Now</button></a>
+    </div></center>
+  </body>
+</html>
