@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
+  </head>
+  <body>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        text-decoration: none;
+        list-style: none;
+        box-sizing: border-box;
+      }
+      nav {
+        background-color: rgb(17, 109, 17);
+        height: 60px;
+        width: 100%;
+        font-weight: bold;
+      }
+      label.logo {
+        color:white;
+        font-size: 35px;
+        line-height: 80px;
+        padding: 0 25px;
+        
+      }
+      nav ul {
+        margin-left: 80px;
+      }
+      nav ul li {
+        display: inline-block;
+        line-height: 50px;
+        margin: 0 7px;
+      }
+      nav ul li a {
+        color: azure;
+        font-size: 17px;
+        padding: 7px 13px;
+        border-radius: 3px;
+        text-transform: uppercase;
+        font-family: cursive;
+      }
+      a.active,
+      a.hover {
+        background-color: slategrey;
+        transition: 0.5s;
+      }
+      .checkbtn {
+        color: azure;
+        float: right;
+        margin-right: 40px;
+        cursor: pointer;
+        display: none;
+      }
+      #check {
+        display: none;
+      }
+      @media (max-width: 950px) {
+        label.logo {
+          font-size: 20px;
+          
+        }
+        nav ul li a {
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 850px) {
+        .checkbtn {
+          display: block;
+        }
+        ul {
+          width: 100%;
+          position: fixed;
+          height: 100vh;
+          background-color: papayawhip;
+          left: -150%;
+          text-align: center;
+          transition: all 0.5s;
+        }
+        nav ul li {
+          display: block;
+          margin: 5px 0;
+          line-height: 30px;
+        }
+        nav ul li a {
+          font-size: 20px;
+          color: black;
+        }
+        a.active,
+        a.hover {
+          background-color: none;
+          color: black;
+        }
+        #check:checked ~ ul {
+          left: 0;
+        }
+      }
+      .dot {
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+      .active {
+        background-color: #717171;
+      }
+      .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+      img {
+        height: 500px;
+      }
+
+      @keyframes fade {
+        from {
+          opacity: 0.4;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* On smaller screens, decrease text size */
+      @media only screen and (max-width: 300px) {
+        .text {
+          font-size: 11px;
+        }
+      }
+      .mySlides {
+        display: none;
+      }
+      .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+      }
+      .container1 {
+        
+        margin: 60px;
+        justify-content: space-around;
+        display: flex;
+        
+      }
+      .container1 p{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .inside {
+        flex: 1;
+        justify-content: space-around;
+        text-align: center;
+        border-radius: 5px;
+        height: 200px;
+        width: 350px;
+        margin-top: 28px;
+        margin: 60px;
+        
+      }
+      .header{
+        background-color:rgb(17, 109, 17);
+        
+      }
+      .inside img {
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 auto;
+        border-radius: 5%;
+        
+      }
+      .texti{
+        margin-top: 60px;
+        text-align: center; 
+        padding: 20px; 
+        background-color: #f2f2f2; 
+        border: 2px solid #ccc; 
+        border-radius: 10px; 
+      }
+      .texti h1,h2{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 24px;
+      }
+      
+      .dropdown {
+        position: relative;
+        display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+.texti p {
+    
+    font-size: 17px; 
+    line-height: 1.5; 
+    text-align: justify;
+    line-height: 30px;
+    margin: 0 40px 30px;
+    font-weight: 500px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+footer{ 
+    background-color:#3e8e41; 
+    padding: 10px; 
+    text-align: center; 
+    color: white;  
+    height: 100px;
+}
+
+  </style>
+
+<div class="header">
+    
+    <center><label class="logo" style="display: inline-block;margin-top: 30px;font-weight: bold;">Farmer Friendly <i class="fa fa-leaf" aria-hidden="true"></i>
+    </label></center>
+
+</div>
+    <nav>
+      <input type="checkbox" id="check" />
+      <label for="check" class="checkbtn">
+        <i class="material-icons" style="font-size: 30px; line-height: 80px"
+          >menu</i
+        >
+      </label>
+
+      <ul>
+        <li><a class="active" href="#">HOME</a></li>
+        <li><a href="cropguide.html">CROP GUIDE</a></li>
+        <li><a href="shopping.html">PURCHASE</a></li>
+        <li><a href="weather.html">WEATHER</a></li>
+        <li><a href="agriculturists.html">AGRICULTURISTS</a></li>
+        <li><a href="#">FAQS</a></li>
+        <div class="dropdown" style="float:right; margin-right: 20px;">
+            <a href="#" style="float: right; color: white; font-size:30px;"><i class="fa fa-user" aria-hidden="true"></i></a>
+            <div class="dropdown-content">
+            <a href="#">YOU</a>
+            <a href="#">SETTINGS</a>
+            <a id="logout-btn">LOGOUT</a>
+            </div>
+          </div>
+          
+        <a href="#" style="float: right; color: white; font-size:30px; margin-right: 25px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+        
+
+      </ul>
+    </nav>
+    <div class="slideshow-container">
+      <div class="mySlides fade">
+        <img
+          src="https://img.freepik.com/free-photo/detail-rice-plant-sunset-valencia-with-plantation-out-focus-rice-grains-plant-seed_181624-25838.jpg?size=626&ext=jpg&ga=GA1.2.933601817.1697155200&semt=ais"
+          style="width: 100%"
+        />
+      </div>
+
+      <div class="mySlides fade">
+        <img
+          src="https://www.foodnavigator.com/var/wrbm_gb_food_pharma/storage/images/publications/food-beverage-nutrition/foodnavigator.com/news/policy/agri-food-policy-reform-in-uk-and-eu-may-raise-prices-farmers-warn/11991942-1-eng-GB/Agri-food-policy-reform-in-UK-and-EU-may-raise-prices-farmers-warn.jpg"
+          style="width: 100%"
+        />
+      </div>
+
+      <div class="mySlides fade">
+        <img src="https://st4.depositphotos.com/13187390/20841/i/450/depositphotos_208416686-stock-photo-indian-farmer-holding-crop-plant.jpg" style="width: 100%" />
+      </div>
+    
+    <div class="mySlides fade">
+      <img src="https://img-cdn.oliveoiltimes.com/cb:XkPz.23f19/w:auto/h:auto/q:mauto/https://www.oliveoiltimes.com/media/2022/11/104592888_l.jpg" style="width: 100%" />
+    </div>
+  
+  <div class="mySlides fade">
+  
+      <img src="https://i.pinimg.com/originals/a9/41/71/a941711b15e8e3ce562a31d3b933aa81.jpg" style="width: 100%" />
+    </div>
+
+  
+</div>
+    <br />
+
+    <div style="text-align: center">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+
+    </div>
+    <div class="texti">
+        <h1>Your Farming Companion!</h1><br>
+        <p>Farming is not merely a profession, it's a way of life...<br> A legacy passed down through generations. It's a journey of hard work, dedication, and an unbreakable connection with the land. 
+            Our farmers are the unsung heroes of our nation, feeding not just our stomachs, but our hopes and dreams as well. 
+            Agriculture is the backbone of our country's economy.
+            It is the main traditional occupation of our country.India produces both Kharif and Rabi crops.<br>
+            <h2>About Us..</h2><br>
+            <p>We are passionate about empowering farmers and agriculturists with the tools, knowledge, and resources they need to thrive in an 
+                ever-evolving industry. Our journey began with a simple yet powerful vision - to bridge the gap between traditional farming practices and cutting-edge technology. We understand the importance of agriculture in our lives, and we're committed to providing solutions that make 
+                farming more efficient, sustainable, and rewarding.</p>
+        </p>
+    </div>
+    <div class="container1">
+      <h1>See for more details:</h1>
+      <div class="inside">
+        <a href="season.html" style="color: black;
+        font-weight: 100px; font-size: 30px;
+        text-decoration: none;"> <img src="https://d1whtlypfis84e.cloudfront.net/guides/wp-content/uploads/2019/07/27114414/Summer-season-1024x576.jpg" alt="">Season Wise</a>
+      </div>
+      <div class="inside">
+        <a href="soilwise.html" style="color: black;
+        font-weight: 100px; font-size: 30px;
+        text-decoration: none;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ792W1i137XpqkDXe9zFr_hPggDf6hIUt7bkWpxcyXbs-NylRil3lFl9QzVjTVQTRNd5A&usqp=CAU" alt="">soil type</a>
+      </div>
+      
+    </div>
+    <footer> 
+      <p>Email id: abc@vishnu.edu.in</p> 
+      <p>phone:9876543210</p>
+      <div class="icons">
+      <a href="#" style="color: white; font-size:20px;"><i class="fa-brands fa-facebook"></i></a>
+      <a href="#" style="color: white; font-size:20px;"><i class="fa-brands fa-square-twitter"></i></a>
+      <a href="#" style="color: white; font-size:20px;"><i class="fa-brands fa-telegram"></i></a>
+      <a href="#" style="color: white; font-size:20px;"><i class="fa-brands fa-linkedin"></i>
+      </div> 
+  </footer>
+   
+  
+
+    <script>
+      let slideIndex = 0;
+      showSlides();
+
+      function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+          slideIndex = 1;
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+      }
+      document
+        .getElementById("logout-btn")
+        .addEventListener("click", function () {
+          window.location.href="/"; // Go back to the previous page
+        });
+    </script>
+  </body>
+</html>
