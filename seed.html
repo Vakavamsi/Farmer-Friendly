@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>e-commerce</title>
+    <style>
+        /* Your CSS styles here */
+        body {
+            font-family: "Lucida Sans";
+            background-color: #f2f2f2;
+            background-image: url("https://img.freepik.com/premium-photo/abstract-background-green-color_7182-1104.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+            color: #333;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .search-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 29px;
+        }
+        .search-input {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 20px;
+            width: 500px;
+        }
+        .search-btn {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .book-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .book-card {
+            width: calc(33.33% - 10px);
+            margin-bottom: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
+            float: right;
+        }
+        .book-card img {
+            max-width: 50%;
+            height: auto;
+            border-radius: 10%;
+        }
+        .book-card .details {
+            padding: 10px;
+        }
+        .book-card .title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .book-card .author {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        img {
+            width: 150px;
+            height: 100px;
+        }
+        .pagination {
+            display: inline-block;
+            margin-left: 400px;
+        }
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+        .pagination a.active {
+            background-color: #4c63af;
+            color: white;
+            border-radius: 5px;
+        }
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+        .cart {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+        }
+        .cart-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .cart-count {
+            margin-left: 5px;
+            font-weight: bold;
+        }
+        .search-results {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 20px 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h2><center> Happy Shopping!</center></h2>
+    <div class="container">
+        <header class="header">
+            <center><div class="logo">Online Pesticide Shop</div></center>
+            <div style="float: right;" class="cart">
+                <span class="cart-icon">🛒</span>
+                <span class="cart-count">0</span>
+            </div>
+            <!-- Search form -->
+            <form class="search-box" onsubmit="searchPesticides(); return false;">
+                <input type="text" class="search-input" placeholder="Search Pesticides" id="search-input">
+                <button type="submit" class="search-btn">Search</button>
+            </form>
+        </header>
+        <div class="search-results" id="search-results">
+            <!-- Search results will be displayed here -->
+        </div>
+        <div class="book-list">
+            <div class="book-card">
+                <img src="https://5.imimg.com/data5/SELLER/Default/2021/6/BB/DA/HD/2486200/shruti-f-1-cucumber-seed-500x500.png" alt="Book 1" class="one">
+                <div class="details">
+                  <div class="title">Cucumber Seeds</div>
+                  <div class="author">Sagar Seeds</div>
+                  <div class="price">$10.99</div> <!-- Add price -->
+                  <button class="add-to-cart" onclick="addToCart('Cucumber Seeds', 'Sagar Seeds', 10.99)">Add to Cart</button>
+                </div>
+              </div>
+        <div class="book-card">
+        <img src="https://tiimg.tistatic.com/fp/1/007/778/pack-of-1-packet-83-gram-kitchen-garden-vegetable-seeds-148.jpg" alt="Book 2">
+        <div class="details">
+        <div class="title">Garden Vegetable Seed</div>
+        <div class="author">IFFDC</div>
+        <div class="price">$10.99</div> <!-- Add price -->
+                  <button class="add-to-cart" onclick="addToCart('Garden Vegetable Seed','IFFDC', 10.99)">Add to Cart</button>
+        </div>
+        </div>
+        <div class="book-card">
+        <img src="https://cpimg.tistatic.com/06617231/b/4/Advance-Bio-Seeds.jpg" alt="Book 3">
+        <div class="details">
+        <div class="title">Bio Seeds</div>
+        <div class="author">ABS</div>
+        <div class="price">$10.99</div> <!-- Add price -->
+        <button class="add-to-cart" onclick="addToCart('Bio Seeds', 'ABS', 10.99)">Add to Cart</button>
+        </div>
+        </div>
+        <div class="book-card">
+        <img src="https://www.mystore.in/s/62ea2c599d1398fa16dbae0a/64412214ea8dce8260892be2/nsc-1-kg-veg-kit-image-640x640.jpg" alt="Book 4">
+        <div class="details">
+        <div class="title">Seed kit</div>
+        <div class="author">NSC</div>
+        <div class="price">$10.99</div>
+        <button class="add-to-cart" onclick="addToCart('Seed Kit', 'NSC', 10.99)">Add to Cart</button>
+        </div>
+        </div>
+        <div class="book-card">
+        <img src="https://farmkey.in/uploads/product/aakash.jpg" alt="Book 5">
+        <div class="details">
+        <div class="title">Bitter Guard Seeds</div>
+        <div class="author">VNR Seeds</div>
+        <div class="price">$2.99</div>
+        <button class="add-to-cart"onclick="addToCart('Bitter Guard Seeds', 'VNR Seeds', 2.99)">Add to Cart</button>
+        </div>
+        </div>
+        <div class="book-card">
+        <img src="https://www.farmersstop.com/cdn/shop/products/zubera_301x448.jpg?v=1635244855" alt="Book 6">
+        <div class="details">
+        <div class="title">Carrot Seeds</div>
+        <div class="author">Zubera</div>
+        <div class="price">$1.99</div>
+        <button class="add-to-cart" onclick="addToCart('Carrot Seeds', 'Zubera', 1.99)">Add to Cart</button>
+        </div>
+        </div>
+        <div class="book-card">
+        <img src="https://cpimg.tistatic.com/07139078/b/4/Vegetable-Seeds-Printed-Laminated-Film-Pouches-For-Packaging.jpg" alt="Book 7">
+        <div class="details">
+        <div class="title">Tomato Seeds</div>
+        <div class="author">Bio Seeds</div>
+        <div class="price">$3.99</div>
+        <button class="add-to-cart" onclick="addToCart('Tomato Seeds', 'Bio Seeds', 3.99)">Add to Cart</button>
+        </div>
+        </div>
+        <div class="book-card">
+        <img src="https://tiimg.tistatic.com/fp/1/002/508/cotton-seeds-917.jpg" alt="Book 8">
+        <div class="details">
+        <div class="title">Cotton Seeds</div>
+        <div class="author">Ganga Kaveri Seeds</div>
+        <div class="price">$4.99</div>
+        <button class="add-to-cart" onclick="addToCart('Cotton Seeds', 'Ganga Kaveri Seeds', 4.99)">Add to Cart</button>
+        </div>
+        </div>
+        <div class="book-card">
+        <img src="https://tiimg.tistatic.com/fp/1/001/514/cotton-seeds-247.jpg" alt="Book 9">
+        <div class="details">
+        <div class="title">Cotton Seeds</div>
+        <div class="author">Nuziveedu</div>
+        <div class="price">$5.99</div>
+        <button class="add-to-cart" onclick="addToCart('Cotton Seeds', 'Nuziveedu', 5.99)">Add to Cart</button>
+        </div>
+        </div>
+        <div class="book-card">
+        <img src="https://tiimg.tistatic.com/fp/1/007/797/fresh-orange-colour-marigold-seeds-for-home-gardening-and-agriculture-use-591.jpg" alt="Book 9">
+        <div class="details">
+        <div class="title">MariGold Seeds</div>
+        <div class="author">Indus</div>
+        <div class="price">$7.99</div>
+        <button class="add-to-cart" onclick="addToCart('MariGold Seeds', 'Indus', 7.99)">Add to Cart</button>
+        </div>
+        </div>
+        <div class="book-card">
+        <img src="https://tiimg.tistatic.com/fp/1/007/010/healthy-and-natural-dried-black-pepper-seeds-104.jpg" alt="Book 10">
+        <div class="details">
+        <div class="title">Black Pepper Seeds</div>
+        <div class="author">Seaways International</div>
+        <div class="price">$1.99</div>
+        <button class="add-to-cart" onclick="addToCart('Black Pepper Seeds', 'Seaways International', 1.99)">Add to Cart</button>
+        </div>
+        </div>
+        <div class="book-card">
+        <img src="https://horticult.co/spree/products/1628/product/Methi-vegetable-seeds-buy-seeds-online-vegetable-seeds-Horticult.jpeg?1615389920" alt="Book 10">
+        <div class="details">
+        <div class="title">Methi Seeds</div>
+        <div class="author">Urban Green</div>
+        <div class="price">$2.99</div>
+        <button class="add-to-cart" onclick="addToCart('Methi Seeds', 'Urban Green', 2.99)">Add to Cart</button>
+        </div>
+
+    <!-- ... Your existing book cards ... -->
+    
+</div>
+
+
+ 
+    </div>
+    <script>
+    // ... Your existing code ...
+
+    // Function to filter book cards based on the search term.
+    function filterPesticides(searchTerm) {
+        const bookCards = document.querySelectorAll(".book-card");
+
+        bookCards.forEach((bookCard) => {
+            const title = bookCard.querySelector(".title").textContent.toLowerCase();
+            const author = bookCard.querySelector(".author").textContent.toLowerCase();
+
+            if (title.includes(searchTerm) || author.includes(searchTerm)) {
+                bookCard.style.display = "block";
+            } else {
+                bookCard.style.display = "none";
+            }
+        });
+    }
+
+    // Search functionality
+    function searchPesticides() {
+        const searchInput = document.getElementById("search-input");
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        const searchResults = document.getElementById("search-results");
+        const bookList = document.querySelector(".book-list");
+
+        // Clear previous search results and show book list.
+        searchResults.innerHTML = "";
+        searchResults.style.display = "none";
+        bookList.style.display = "block";
+
+        if (searchTerm !== "") {
+            // Filter book cards based on the search term.
+            filterPesticides(searchTerm);
+
+            // Check if any results were found.
+            const visibleBookCards = document.querySelectorAll(".book-card[style='display: block;']");
+            if (visibleBookCards.length === 0) {
+                searchResults.innerHTML = "<p>No results found.</p>";
+                searchResults.style.display = "block";
+                bookList.style.display = "none";
+            }
+        }
+    }
+
+    // ... The rest of your code ...
+    document.addEventListener("DOMContentLoaded", function () {
+      // Initialize the shopping cart as an empty array.
+      const shoppingCart = [];
+
+      // Function to update the cart count display.
+      function updateCartCount() {
+        const cartCountElement = document.querySelector(".cart-count");
+        cartCountElement.textContent = shoppingCart.length;
+      }
+
+      // Add a book to the cart.
+      function addToCart(title, author) {
+        shoppingCart.push({ title, author });
+        updateCartCount();
+      }
+
+      // Attach click event listeners to "Add to Cart" buttons.
+      const addToCartButtons = document.querySelectorAll(".add-to-cart");
+      addToCartButtons.forEach((button) => {
+        button.addEventListener("click", (event) => {
+          const bookCard = event.target.closest(".book-card");
+          const title = bookCard.querySelector(".title").textContent;
+          const author = bookCard.querySelector(".author").textContent;
+          addToCart(title, author);
+        });
+      });
+
+      // Handle the cart icon click event to show cart contents.
+      const cartIcon = document.querySelector(".cart-icon");
+      const cartContents = document.querySelector(".cart-contents");
+
+      cartIcon.addEventListener("click", () => {
+        // Create a list of cart items to display.
+        const cartItems = shoppingCart.map(
+          (item) => `${item.title} by ${item.author}`
+        );
+
+        // Create a list element and append cart items.
+        const cartList = document.createElement("ul");
+        cartItems.forEach((itemText) => {
+          const listItem = document.createElement("li");
+          listItem.textContent = itemText;
+          cartList.appendChild(listItem);
+        });
+
+        // Display the cart items in a dialog.
+        if (cartItems.length > 0) {
+          alert("Your Cart:\n" + cartItems.join("\n"));
+        } else {
+          alert("Your cart is empty.");
+        }
+      });
+
+      // Update the cart count on page load.
+      updateCartCount();
+    });
+  </script>
+<center><div class="payment-section">
+    <h2>Payment Options</h2>
+    <a href="checkout.html"><button id="payButton">Pay Now</button></a>
+  </div></center>
+
+</body>
+</html>
