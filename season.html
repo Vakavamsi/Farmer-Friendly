@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
+  </head>
+  <body>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      nav {
+        background-color: rgb(17, 109, 17);
+        height: 60px;
+        width: 100%;
+        font-weight: bold;
+      }
+      label.logo {
+        color:white;
+        font-size: 35px;
+        line-height: 80px;
+        padding: 0 25px;
+        
+      }
+      nav ul {
+        margin-left: 80px;
+      }
+      nav ul li {
+        display: inline-block;
+        line-height: 50px;
+        margin: 0 7px;
+      }
+      nav ul li a {
+        color: azure;
+        font-size: 17px;
+        padding: 7px 13px;
+        border-radius: 3px;
+        text-transform: uppercase;
+        font-family: cursive;
+      }
+      a.active,
+      a.hover {
+        background-color: slategrey;
+        transition: 0.5s;
+      }
+      .checkbtn {
+        color: azure;
+        float: right;
+        margin-right: 40px;
+        cursor: pointer;
+        display: none;
+      }
+      #check {
+        display: none;
+      }
+      @media (max-width: 950px) {
+        label.logo {
+          font-size: 20px;
+          
+        }
+        nav ul li a {
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 850px) {
+        .checkbtn {
+          display: block;
+        }
+        .main{
+          width: 100%;
+          position: fixed;
+          height: 100vh;
+          background-color: papayawhip;
+          left: -150%;
+          text-decoration: none;
+          text-align: center;
+          transition: all 0.5s;
+        }
+        nav ul li {
+          display: block;
+          margin: 5px 0;
+          line-height: 30px;
+        }
+        nav ul li a {
+          font-size: 20px;
+          color: black;
+        }
+        a.active,
+        a.hover {
+          background-color: none;
+          color: black;
+        }
+        #check:checked ~ ul {
+          left: 0;
+        }
+      }
+      .dot {
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+      .active {
+        background-color: #717171;
+      }
+      .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+      img {
+        height: 500px;
+      }
+
+      @keyframes fade {
+        from {
+          opacity: 0.4;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* On smaller screens, decrease text size */
+      @media only screen and (max-width: 300px) {
+        .text {
+          font-size: 11px;
+        }
+      }
+      .header{
+        background-color:rgb(17, 109, 17);
+        
+      }
+      
+      .dropdown {
+        position: relative;
+        display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+footer{ 
+    background-color:#3e8e41; 
+    padding: 10px; 
+    text-align: center; 
+    color: white;  
+    height: 100px;
+}
+.container {
+        font-size: 22px;
+            padding: 20px;
+        
+    }
+
+    .row {
+        display: flex;
+        justify-content: space-between; 
+        margin-bottom: 10px;
+    }
+
+    .border {
+        margin-left: 25px;
+        line-height: 2;
+    }
+    .bo {
+        margin-top: 60px;
+        width: 280px;
+        height: 250px;
+        background-color: #f0f0f0;
+        border: 2px solid black;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+        display: flex;
+    
+        
+    }
+    section{
+        line-height: 2;
+    }
+    
+  </style>
+
+<div class="header">
+    
+    <center><label class="logo" style="display: inline-block;margin-top: 30px;font-weight: bold;">Farmer Friendly <i class="fa fa-leaf" aria-hidden="true"></i>
+    </label></center>
+
+</div>
+    <nav>
+      <input type="checkbox" id="check" />
+      <label for="check" class="checkbtn">
+        <i class="material-icons" style="font-size: 30px; line-height: 80px"
+          >menu</i
+        >
+      </label>
+
+      <ul class="main">
+        <li><a class="active" href="home.html" style="text-decoration: none;">HOME</a></li>
+        <li><a href="cropguide.html"style="text-decoration: none;">CROP GUIDE</a></li>
+        <li><a href="shopping.html" style="text-decoration: none;">PURCHASE</a></li>
+        <li><a href="weather.html" style="text-decoration: none;">WEATHER</a></li>
+        <li><a href="agriculturists.html" style="text-decoration: none;">AGRICULTURISTS</a></li>
+        <li><a href="#" style="text-decoration: none;">FAQS</a></li>
+        <div class="dropdown" style="float:right; margin-right: 20px;">
+            <a href="#" style="float: right; color: white; font-size:30px;"><i class="fa fa-user" aria-hidden="true"></i></a>
+            <div class="dropdown-content">
+            <a href="#">YOU</a>
+            <a href="#">SETTINGS</a>
+            <a id="logout-btn" href="signup.html">LOGOUT</a>
+            </div>
+          </div>
+          
+        <a href="#" style="float: right; color: white; font-size:30px; margin-right: 25px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+        
+
+      </ul>
+    </nav>
+    <div class="container">
+        <h1 style=" display: inline-block; text-align: left;">Crop Seasons in India:</h1><br><br>
+         <ul style="margin-left: 180px;">
+            <li>Kharif Crop Season</li><br>
+            <li>Rabi Crop Season</li><br>
+            <li>Zaid crop Seasion</li><br>
+         </ul>
+        <div class="row">
+        
+        <div class="border">
+        <a href="#kharif"><img src="https://tse2.mm.bing.net/th?id=OIP.6MQPaQAW-BbLsBL53HmaSwHaFj&pid=Api&P=0&h=180" alt="ntg" class="bo"></a>
+        <center><p >Kharif</p></center>
+        </div>
+        <div class="border">
+        <a  href="#rabi"><img src="https://tse1.mm.bing.net/th?id=OIP.8cx2CtrDbz0QjLh7IsH1CwHaFj&pid=Api&P=0&h=180" alt="lunch" class="bo"></a>
+        <center><p >Rabi</p></center>
+        </div>
+        <div class="border">
+        <a  href="#zaid"><img src="https://tse3.mm.bing.net/th?id=OIP.aCPQeg6SSps_yeEhNLK-xwHaFj&pid=Api&P=0&h=180" alt="snacks" class="bo"></a>
+        <center><p >Zaid</p></center>
+        </div>
+    </div>
+    <section >
+        <h2 id="kharif">Kharif Season (Monsoon Season):</h2>
+        <ul style="margin-left: 80px;">
+            <li>Kharif crops or monsoon crops are sown with the beginning of the first rains in July, during the south-west monsoon season in India </li>
+             <li>The Kharif Season lasts from June to October.</li>    
+             <li>Kharif means “autumn” in Arabic. Since this period coincides with the beginning of autumn / winter in the Indian subcontinent, it is called the “Kharif period”.</li>
+             <li>Kharif crops are dependent on the large quantity of rain water as well its timing.</li>
+            <li>Major kharif  crops in India :<ul style="margin-left: 180px;"><li>Jowar</li> 
+                <li>Rice (Paddy)</li> 
+                <li>Millet</li> 
+                <li>Maize (corn)</li> 
+                <li>Soyabean</li>
+                <li>turmeric</li> 
+                <li>cotton</li> 
+                <li>sugarcane</li> 
+                <li>green gram (moong)</li>
+                <li>sesame (till)</li> 
+                <li>arhar (toor)</li> 
+                <li>black gram (urad)</li> 
+                <li>Tea</li> 
+                <li>Coffee </li>
+                <li>Rubber are the major crops sown during this season.</li></ul></li>
+            </ul>
+             
+        </section>
+    <section >
+        <h2 id="rabi">Rabi Season (Winter Season):</h2>
+        <ul style="margin-left: 80px;">
+            <li>The Rabi crops are sown around mid-November, after the monsoon rains are over, and harvesting begins in April/May.</li>
+            <li>The crops are grown either with rainwater that has percolated into the ground, or with  irrigation. It also requires cold weather and less water compared to Kharif crops.</li>
+            <li>The major rabi crop in India is <ul style="margin-left: 180px;"><li>wheat</li> <li>barley</li><li>mustard</li><li>sesame</li><li>peas</li><li>oats</li><li>cereals</li><li>pulses</li><li>oilseeds</li><li>Linseeds etc.</li></ul></li>
+            <li>The term “Rabi” is derived from the Arabic word “spring”, which is used in the Indian subcontinent, where it is the spring harvest (also known as the “winter crop”).</li>
+        </ul>
+    </section>
+    <section >
+        <h2 id="zaid">Zaid Season (Summer Season):</h2>
+        <ul style="margin-left: 80px;">
+            <li>In the Indian subcontinent, the crops grown on irrigated lands which do not have to wait for monsoons, in the short duration between Rabi and Kharif crop season, mainly from March to June are called Zaid crops.</li>
+            <li>Zaid crops are grown mainly in the summer season during a period called the “Zayad crop season.”.</li>
+            <li>Zaid crops require warm dry weather for major growth periods and longer day length for flowering.</li>
+            <li>The main produce is seasonal fruits and vegetables like <ul style="margin-left: 180px;"><li>Watermelon</li>
+            <li>muskmelon</li><li>sunflower</li> <li>sugarcane</li>  <li>Bitter gourd</li> <li>Pumpkin</li></ul></li>
+        </ul>
+    </section>   
+</div>
+
+   
+    
+    <footer> 
+      <p>Email id: abc@vishnu.edu.in</p> 
+      <p>phone:9876543210</p>
+      <div class="icons">
+      <a href="#" style="color: white; font-size:20px;"><i class="fa-brands fa-facebook"></i></a>
+      <a href="#" style="color: white; font-size:20px;"><i class="fa-brands fa-square-twitter"></i></a>
+      <a href="#" style="color: white; font-size:20px;"><i class="fa-brands fa-telegram"></i></a>
+      <a href="#" style="color: white; font-size:20px;"><i class="fa-brands fa-linkedin"></i>
+      </div> 
+  </footer>
+  </body>
+</html>
