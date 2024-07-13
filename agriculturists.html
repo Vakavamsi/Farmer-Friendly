@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        text-decoration: none;
+        list-style: none;
+        box-sizing: border-box;
+      }
+      nav {
+        background-color: rgb(17, 109, 17);
+        height: 60px;
+        width: 100%;
+        font-weight: bold;
+      }
+      label.logo {
+        color: white;
+        font-size: 35px;
+        line-height: 80px;
+        padding: 0 25px;
+      }
+      nav ul {
+        margin-left: 80px;
+      }
+      nav ul li {
+        display: inline-block;
+        line-height: 50px;
+        margin: 0 7px;
+      }
+      nav ul li a {
+        color: azure;
+        font-size: 17px;
+        padding: 7px 13px;
+        border-radius: 3px;
+        text-transform: uppercase;
+        font-family: cursive;
+      }
+      a.active,
+      a.hover {
+        background-color: slategrey;
+        transition: 0.5s;
+      }
+      .checkbtn {
+        color: azure;
+        float: right;
+        margin-right: 40px;
+        cursor: pointer;
+        display: none;
+      }
+      #check {
+        display: none;
+      }
+      @media (max-width: 950px) {
+        label.logo {
+          font-size: 20px;
+        }
+        nav ul li a {
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 850px) {
+        .checkbtn {
+          display: block;
+        }
+        ul {
+          width: 100%;
+          position: fixed;
+          height: 100vh;
+          background-color: papayawhip;
+          left: -150%;
+          text-align: center;
+          transition: all 0.5s;
+        }
+        nav ul li {
+          display: block;
+          margin: 5px 0;
+          line-height: 30px;
+        }
+        nav ul li a {
+          font-size: 20px;
+          color: black;
+        }
+        a.active,
+        a.hover {
+          background-color: none;
+          color: black;
+        }
+        #check:checked ~ ul {
+          left: 0;
+        }
+      }
+      .header {
+        background-color: rgb(17, 109, 17);
+      }
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        right: 0;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #f1f1f1;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      .dropdown:hover .dropbtn {
+        background-color: #3e8e41;
+      }
+      .profile-card-container {
+        display: flex;
+        justify-content: space-around;
+         /* Adjust the width to fit three cards side by side */
+      }
+
+      .profile-card {
+        background-color: #fff;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        text-align: center;
+        padding: 20px;
+        width: 250px;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center vertically */
+        align-items: center; /* Center horizontally */
+        margin: 20px;
+        margin-left: 100px;
+      }
+
+      .profile-card img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #fff;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      }
+
+      .profile-card h1 {
+        font-size: 24px;
+        margin: 10px 0;
+        color: #333;
+      }
+
+      .profile-card p {
+        font-size: 16px;
+        margin: 5px 0;
+        color: #666;
+      }
+
+      .profile-card a {
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+      }
+
+      .profile-card a:hover {
+        text-decoration: underline;
+      }
+      .form-container {
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        padding: 20px;
+        max-width: 400px;
+        width: 100%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        background-color: #fff;
+        margin-top: 50px;
+        margin-left: 350px;
+      }
+
+      .form-container h2 {
+        text-align: center;
+      }
+
+      .form-container label {
+        display: block;
+        margin: 10px 0;
+      }
+
+      .form-container input {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .form-container input[type="submit"] {
+        background-color:#3e8e41;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      .form-container input[type="submit"]:hover {
+        background-color: grey;
+      }
+     
+  
+      
+    </style>
+
+    <div class="header">
+      <center>
+        <label
+          class="logo"
+          style="display: inline-block; margin-top: 30px; font-weight: bold"
+          >Farmer Friendly <i class="fa fa-leaf" aria-hidden="true"></i>
+        </label>
+      </center>
+    </div>
+    <nav>
+      <input type="checkbox" id="check" />
+      <label for="check" class="checkbtn">
+        <i class="material-icons" style="font-size: 30px; line-height: 80px"
+          >menu</i
+        >
+      </label>
+
+      <ul>
+        <li><a href="home.html">HOME</a></li>
+        <li><a href="cropguide.html">CROP GUIDE</a></li>
+        <li><a href="shopping.html">PURCHASE</a></li>
+        <li><a href="weather.html">WEATHER</a></li>
+        <li><a class="active" href="#">AGRICULTURISTS</a></li>
+        <li><a href="#">FAQS</a></li>
+        <div class="dropdown" style="float: right; margin-right: 20px">
+          <a href="#" style="float: right; color: white; font-size: 30px"
+            ><i class="fa fa-user" aria-hidden="true"></i
+          ></a>
+          <div class="dropdown-content">
+            <a href="#">YOU</a>
+            <a href="#">SETTINGS</a>
+            <a href="signup.html">LOGOUT</a>
+          </div>
+        </div>
+        <a
+          href="#"
+          style="
+            float: right;
+            color: white;
+            font-size: 30px;
+            margin-right: 25px;
+          "
+          ><i class="fa fa-shopping-cart" aria-hidden="true"></i
+        ></a>
+      </ul>
+    </nav>
+    <div class="profile-card-container">
+      <!-- Profile Card 1 -->
+      <div class="profile-card">
+        <img
+          src="https://img.freepik.com/free-photo/brunette-business-woman-with-wavy-long-hair-blue-eyes-stands-holding-notebook-hands_197531-343.jpg"
+          alt="Agriculturist Image"
+        />
+        <h1>Radhika</h1>
+        <p>Location: Hyderabad,India</p>
+        <p>Specialization: Crop Management</p>
+        <p>Experience: 10 years</p>
+        <p>agriculturist1@example.com</p>
+      </div>
+
+      <!-- Profile Card 2 -->
+      <div class="profile-card">
+        <img
+          src="https://st4.depositphotos.com/13187390/27262/i/1600/depositphotos_272628916-stock-photo-young-indian-man-spectacles.jpg"
+          alt="Agriculturist Image"
+        />
+        <h1>Rohan</h1>
+        <p>Location: Chennai,India</p>
+        <p>Specialization: Soil Science</p>
+        <p>Experience: 8 years</p>
+        <p>agriculturist2@example.com</p>
+      </div>
+
+      <div class="profile-card">
+        <img
+          src="https://tse3.mm.bing.net/th?id=OIP.41VTlk9adnTvI76-lwAsQgAAAA&pid=Api&P=0&h=180"
+          alt="Agriculturist Image"
+        />
+        <h1>Aaradhya</h1>
+        <p>Location: Guntur,India</p>
+        <p>Specialization: Soil Science</p>
+        <p>Experience: 5 years</p>
+        <p>agriculturist4@example.com</p>
+      </div>
+
+      <!-- Profile Card 3 -->
+      <div class="profile-card">
+        <img
+          src="https://tse2.mm.bing.net/th?id=OIP.xFL5vJBDT2I-hkTTMO6fSAHaE7&pid=Api&P=0&h=180"
+          alt="Agriculturist Image"
+        />
+        <h1>Yamini</h1>
+        <p>Location:Banglore,India</p>
+        <p>Specialization: Horticulture</p>
+        <p>Experience: 12 years</p>
+        <p>agriculturist3@example.com</p>
+      </div>
+    </div>
+    <div class="form-container">
+        <h2>Enroll New Agriculturist</h2>
+        <form action="#" id="enrollment-form"> <!-- Added id="enrollment-form" to the form -->
+            <label for="full_name">Full Name:</label>
+            <input type="text" id="full_name" name="full_name" required><br><br>
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required><br><br>
+
+            <label for="specialization">Specialization:</label>
+            <input type="text" id="specialization" name="specialization" required><br><br>
+
+            <label for="experience">Experience (in years):</label>
+            <input type="number" id="experience" name="experience" required><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <input type="submit" value="Enroll">
+        </form>
+    </div>
+
+    <div class="success-message" id="success-message" style="display: none;">Enrollment Successful!</div>
+
+    <script>
+      document.getElementById("enrollment-form").addEventListener("submit", function(event) {
+          event.preventDefault();
+          alert("Enrollment Successful!"); // Display a success message as an alert
+      });
+  </script>
+  </body>
+</html>
