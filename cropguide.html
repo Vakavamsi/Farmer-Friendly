@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
+  </head>
+  <body>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        text-decoration: none;
+        list-style: none;
+        box-sizing: border-box;
+      }
+      nav {
+        background-color: rgb(17, 109, 17);
+        height: 60px;
+        width: 100%;
+        font-weight: bold;
+      }
+      label.logo {
+        color:white;
+        font-size: 35px;
+        line-height: 80px;
+        padding: 0 25px;
+        
+      }
+      nav ul {
+        margin-left: 80px;
+      }
+      nav ul li {
+        display: inline-block;
+        line-height: 50px;
+        margin: 0 7px;
+      }
+      nav ul li a {
+        color: azure;
+        font-size: 17px;
+        padding: 7px 13px;
+        border-radius: 3px;
+        text-transform: uppercase;
+        font-family: cursive;
+      }
+      a.active,
+      a.hover {
+        background-color: slategrey;
+        transition: 0.5s;
+      }
+      .checkbtn {
+        color: azure;
+        float: right;
+        margin-right: 40px;
+        cursor: pointer;
+        display: none;
+      }
+      #check {
+        display: none;
+      }
+      @media (max-width: 950px) {
+        label.logo {
+          font-size: 20px;
+          
+        }
+        nav ul li a {
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 850px) {
+        .checkbtn {
+          display: block;
+        }
+        ul {
+          width: 100%;
+          position: fixed;
+          height: 100vh;
+          background-color: papayawhip;
+          left: -150%;
+          text-align: center;
+          transition: all 0.5s;
+        }
+        nav ul li {
+          display: block;
+          margin: 5px 0;
+          line-height: 30px;
+        }
+        nav ul li a {
+          font-size: 20px;
+          color: black;
+        }
+        a.active,
+        a.hover {
+          background-color: none;
+          color: black;
+        }
+        #check:checked ~ ul {
+          left: 0;
+        }
+      }
+      .dot {
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+      .active {
+        background-color: #717171;
+      }
+      .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+      img {
+        height: 500px;
+      }
+
+      @keyframes fade {
+        from {
+          opacity: 0.4;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* On smaller screens, decrease text size */
+      @media only screen and (max-width: 300px) {
+        .text {
+          font-size: 11px;
+        }
+      }
+      .mySlides {
+        display: none;
+      }
+      .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+      }
+      .container1 {
+        margin: 60px;
+        justify-content: space-around;
+        display: flex;
+        
+      }
+      .container1 p{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      
+      .header{
+        background-color:rgb(17, 109, 17);
+        
+      }
+      .inside img {
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 auto;
+        border-radius: 5%;
+        
+      }
+      
+      .dropdown {
+        position: relative;
+        display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+.texti p {
+    
+    font-size: 17px; 
+    line-height: 1.5; 
+    text-align: justify;
+    line-height: 30px;
+    margin: 0 40px 30px;
+    font-weight: 500px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+footer{ 
+    background-color:#3e8e41; 
+    padding: 10px; 
+    text-align: center; 
+    color: white;  
+    height: 100px;
+}
+        .container{
+            padding: 10px;
+            justify-content: space-around;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .bo {
+            width: 150px;
+            height: 150px;
+            background-color: #f0f0f0;
+            border: 2px solid black;
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+            display: flex;
+            margin: 30px;    
+        }
+        .container1{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+
+        }
+        
+        h1{
+            align-items: center;
+        }
+        
+
+  </style>
+
+<div class="header">
+    
+    <center><label class="logo" style="display: inline-block;margin-top: 30px;font-weight: bold;">Farmer Friendly <i class="fa fa-leaf" aria-hidden="true"></i>
+    </label></center>
+
+</div>
+    <nav>
+      <input type="checkbox" id="check" />
+      <label for="check" class="checkbtn">
+        <i class="material-icons" style="font-size: 30px; line-height: 80px"
+          >menu</i
+        >
+      </label>
+
+      <ul>
+        <li><a  href="home.html">HOME</a></li>
+        <li><a href="cropguide.html" class="active">CROP GUIDE</a></li>
+        <li><a href="shopping.html">PURCHASE</a></li>
+        <li><a href="weather.html">WEATHER</a></li>
+        <li><a href="agriculturists.html">AGRICULTURISTS</a></li>
+        <li><a href="#">FAQS</a></li>
+        <div class="dropdown" style="float:right; margin-right: 20px;">
+            <a href="#" style="float: right; color: white; font-size:30px;"><i class="fa fa-user" aria-hidden="true"></i></a>
+            <div class="dropdown-content">
+            <a href="#">YOU</a>
+            <a href="#">SETTINGS</a>
+            <a id="logout-btn" href="signup.html">LOGOUT</a>
+            </div>
+          </div>
+          
+        <a href="#" style="float: right; color: white; font-size:30px; margin-right: 25px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+        
+
+      </ul>
+    </nav>
+
+    <div class="container1">
+        <center><h1 >Field crops</h1></center>
+        <div class="container">
+        <a href="rice.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYIGEN7-rgFphkzHh880RXxkfli2j9CqREdw&usqp=CAU" alt="ntg" class="bo"></a>
+        <a ><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXe61io_D_kbOdLbK4iO013x-v3QdOwHP2kw&usqp=CAU" alt="ntg" class="bo"></a>
+        <a ><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNv9QP31JtNTp9wmlxKOXcRRGME5QcWVDa0w&usqp=CAU" alt="ntg" class="bo"></a>
+        <a ><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLz9-l-4H74Xe_qyEEVznmdTJffoMdNdGCbw&usqp=CAU" alt="ntg" class="bo"></a>
+        <a href="breakfastitems.html#bonda"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDnr41Amt6HPeosN_OrOgUlcJSMMOIFaCu4w&usqp=CAU" alt="ntg" class="bo"></a>
+        <a href="#upma"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo0ZA2Baz4AWclz1pvEwT0kAtg7QQum_O33g&usqp=CAU" alt="ntg" class="bo"></a>
+        <a href="#bonda"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQaEAHv5N_ZWcamUCGR60Kp7xfWB0PQ92IQmRYfwVambHMw6i4w7vf4zDn5b-ReDSk6cU&usqp=CAU" alt="ntg" class="bo"></a>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf_DCpddqwqrI2TfBi_C7dMNzzSIkGwv8Ssg&usqp=CAU" alt="ntg" class="bo">
+        <img src="https://kjcdn.gumlet.io/media/56798/92-920616_wheat-crop.jpg?w=640&dpr=1.3" alt="ntg" class="bo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUhlws_xY-MK369aGrNHX4XOmEUgXra12PWjQTPE9OM5FfU-t3GUVAOC_aca16JwBlcAI&usqp=CAU" alt="ntg" class="bo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZvRRtzIQ9RyPPXc5mQe4TXSE1vqIyoH-g2A&usqp=CAU" alt="ntg" class="bo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuRI6Q7fyZAawM-MaW5CUb2wsFsuf5lJSf_Q&usqp=CAU" alt="ntg" class="bo">
+    </div>
+    <center><h1 >Vegetables</h1></center>
+    <div class="container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgDtHJWURG-S5SMrPZgrbUz5Pp935CvcZ4Bw&usqp=CAU" alt="ntg" class="bo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNh_iLpVTCXn4M2HtK0evKuwRuJsvCud_kBQ&usqp=CAU" alt="ntg" class="bo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvYalghGRIZbH74bL0AME0l9n9AEE0K51a5g&usqp=CAU" alt="ntg" class="bo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDEMGEd1Otjp2MIE27n3qO7_nPSX6aCQyC1g&usqp=CAU" alt="ntg" class="bo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1-ks-ihiSENbD8-Ah7OOl3v4qUp5huHYfSQ&usqp=CAU" alt="ntg" class="bo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQCXlWTxTOJCE3NfMKTGqiAAI151LW7LG5iA&usqp=CAU" alt="ntg" class="bo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkCc61ZqJNrgFRZYPPIITYIOCQnnVh1qICkQ&usqp=CAU" alt="ntg" class="bo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5KXCcpKcc7fqBgqwZopmmWV08-KIFuWYx9g&usqp=CAU" alt="ntg" class="bo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTClKzTLRyyhe0OZHzxlrTIbc0dsxoKfrL9iw&usqp=CAU" alt="ntg" class="bo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbyXh-kJpGvxhV0XDTWQ_w5t2uBcQaJLIDSg&usqp=CAU" alt="ntg" class="bo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVGg8WW3pdqjp6gqk_DiylK53BmJXGvEK4Q3W3mOknJ4LxJw11m4jPw_BL1S4n7KT00Vg&usqp=CAU" alt="ntg" class="bo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7HpGaSMlpy6tF9fg91iA5qlyktw7NUW5KAQ&usqp=CAU" alt="ntg" class="bo">
+    </div>
+    <center><h1>Fruits trees</h1></center>
+    <div class="container">
+        <a href="#bonda"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR18k8AnbW4KgxCO1tplnCeBtlutcqBDrvL-eyWVa_ukg6cpNRC-6RX5jC5Uy8qxQZee0I&usqp=CAU" alt="ntg" class="bo"></a>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqs3wImsH9QBFTcdmfy1dn2Co4B_hfxm8Bjg&usqp=CAU" alt="ntg" class="bo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRa6CQU2t2Iwp7RKXxSQVEKw1ottDFh-Beuw&usqp=CAU" alt="ntg" class="bo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3EEW1TNXoMjWFI5tYC9xMjYNLNVFuaJ0z7w&usqp=CAU" alt="ntg" class="bo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHvpXYVL1y4VxOuO6E4d3LLEseazIw2mitbA&usqp=CAU" alt="ntg" class="bo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvF0fSLw4-7UMsQPS0-n18P__mKDABk-ntSQ&usqp=CAU" alt="ntg" class="bo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvJ9QQvVO8pOGnaAUJrYRrwiawbkZCJisgZQ&usqp=CAU" alt="ntg" class="bo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmOOPAxhx_cLHr1ZghjZ-xjvCLzaqlNgJGjQ&usqp=CAU" alt="ntg" class="bo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt2n8DNJx_PcQVlyAxLjONsqa-lddrKdIPwA&usqp=CAU" alt="ntg" class="bo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzY64X4CDBPZYAij4qUZMNESlA2c94GdXs4w&usqp=CAU" alt="ntg" class="bo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU_gc6DwNU1XnGeHqsgoDMR0TzsGlHSM0ggQ&usqp=CAU" alt="ntg" class="bo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnLHrYDD-KyRZUfMMkdHBo6E8vWdiNR8KroQ&usqp=CAU" alt="ntg" class="bo">
+    </div>
+    <center><h1>Flowers</h1></center><br>
+    <div class="container">
+        <a href="#bonda"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2zRRbYgVOPp7K6olXqIYZjle3wiZAZNCOlA&usqp=CAU" alt="ntg" class="bo"></a>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTCcSjIPQxKWyF_iKQS3eby8mo2JVBErIjng&usqp=CAU" alt="ntg" class="bo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQboX1jXKXHnlNPBW5KbPSJFp1rqtJ6vpdp3Q&usqp=CAU" alt="ntg" class="bo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBmyjmYgz7U38nPf9KWceZXKsGd1fYJNoDRg&usqp=CAU" alt="ntg" class="bo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7MSfYIMD3UKQuf6KSDm0VZHiQ-kqQeIo4RuvNXX1iurg4d9bcdBFH4Qulgty_ABz3Bsk&usqp=CAU" alt="ntg" class="bo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRotapYAIzqGLMrv6LF5H4-QljRjOclLwzw9A&usqp=CAU" alt="ntg" class="bo">
+        
+        
+    </div>
+</div>
+
+    
+    <footer> 
+      <p>Email id: abc@vishnu.edu.in</p> 
+      <p>phone:9876543210</p>
+      <div class="icons">
+      <a href="#" style="color: white; font-size:20px;"><i class="fa-brands fa-facebook"></i></a>
+      <a href="#" style="color: white; font-size:20px;"><i class="fa-brands fa-square-twitter"></i></a>
+      <a href="#" style="color: white; font-size:20px;"><i class="fa-brands fa-telegram"></i></a>
+      <a href="#" style="color: white; font-size:20px;"><i class="fa-brands fa-linkedin"></i>
+      </div> 
+  </footer>
+  </body>
+</html>
